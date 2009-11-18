@@ -7,9 +7,8 @@ When 'I follow the link emailed to "$email"' do |email|
 end
 
 
-Then 'an email is sent to "$name" with:' do |name, table|
-  user = user_from_name(name)
-  email = find_email(table.rows_hash.merge('To' => user.email))
+Then 'an email is sent to "$email" with:' do |address, table|
+  email = find_email(table.rows_hash.merge('To' => address))
   assert_not_nil email
 end
 
